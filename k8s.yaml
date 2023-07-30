@@ -1,0 +1,28 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pfsense-port-forward-operator
+  namespace: k8s-infra-system
+  labels:
+    app: pfsense-port-forward-operator
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: pfsense-port-forward-operator
+  template:
+    metadata:
+      namespace: k8s-infra-system
+      labels:
+        app: pfsense-port-forward-operator
+    spec:
+      containers:
+        - name: pfsense-port-forward-operator
+          image: austin1howard/pfsense-port-forward-operator:0.1.0
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080

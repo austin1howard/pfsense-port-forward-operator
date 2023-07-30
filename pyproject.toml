@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "pfsense-port-forward-operator"
+version = "0.1.0"
+description = "K8s operator for port-forwarding in PFSense"
+authors = ["Austin Howard <austin@ahoward.io>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+kopf = "^1.36.1"
+uvloop = "^0.17.0"
+"ruamel.yaml" = "^0.17.32"
+clearcut = "^0.2.2.post0"
+aiohttp = "^3.8.4"
+pydantic = "^2.0.3"
+pydantic-settings = "^2.0.2"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+known_local_folder = ["jotbackend"]
+profile = "black"
+line_length = 140
+multi_line_output = 3
+
+[tool.black]
+line-length = 140
