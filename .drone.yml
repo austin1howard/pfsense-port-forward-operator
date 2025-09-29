@@ -22,7 +22,7 @@ steps:
       tags:
         - latest
         - git-${DRONE_COMMIT_SHA:0:8}
-        - 0.1.0
+        - 0.1.1
       squash: true
       cache_from:
         - austin1howard/pfsense-port-forward-operator:latest
